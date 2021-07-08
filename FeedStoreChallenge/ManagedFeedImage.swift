@@ -15,7 +15,9 @@ internal final class ManagedFeedImage: NSManagedObject {
 	@NSManaged var location: String?
 	@NSManaged var url: URL
 	@NSManaged var cache: ManagedCache
+}
 
+internal extension ManagedFeedImage {
 	static func image(from feed: [LocalFeedImage], in context: NSManagedObjectContext) -> NSOrderedSet {
 		return NSOrderedSet(array: feed.map { local in
 			let managed = ManagedFeedImage(context: context)
