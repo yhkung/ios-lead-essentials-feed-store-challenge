@@ -70,6 +70,7 @@ public final class CoreDataFeedStore: FeedStore {
 					.map(context.save)
 				completion(nil)
 			} catch {
+				context.rollback()
 				completion(error)
 			}
 		}
